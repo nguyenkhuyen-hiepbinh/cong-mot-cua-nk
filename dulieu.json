@@ -35,9 +35,9 @@
     },
     {
       "id": "sdt",
-      "label": "Số điện thoại",
-      "tone": "blue",
-      "hint": "Tên đăng nhập là số điện thoại của thầy cô, mật khẩu dùng chung với tài khoản CSDL ngành."
+      "label": "Tài khoản Vnedu",
+      "tone": "amber",
+      "hint": "Tên đăng nhập là nk....(Số điện thoại)"
     },
     {
       "id": "email",
