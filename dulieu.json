@@ -54,6 +54,24 @@
   ],
   "systems": [
     {
+      "id": "quanlytruongho",
+      "name": "Quản lý trường học - Học bạ số",
+      "url": "https://vnedu.vn/",
+      "group": "quanly",
+      "accountType": "sdt",
+      "status": "active",
+      "description": "",
+      "login": {
+        "username": "nk....(số điện thoại)",
+        "issuer": "Quản trị",
+        "reset": "Văn phòng nhà trường"
+      },
+      "contact": {
+        "owner": "Học vụ"
+      },
+      "notes": ""
+    },
+    {
       "id": "csdlnganh",
       "name": "Cơ sở dữ liệu Ngành",
       "url": "https://truong.hcm.edu.vn",
