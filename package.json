@@ -1,0 +1,13 @@
+{
+  "name": "cong-mot-cua-nk",
+  "version": "2.0.0",
+  "description": "Cổng Một Cửa Số — Trường THCS – THPT Nguyễn Khuyến",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
