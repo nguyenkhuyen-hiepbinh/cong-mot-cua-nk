@@ -156,6 +156,15 @@
   .nav-item[aria-pressed="true"]{background:var(--brand-soft); color:var(--brand-ink); border-left-color:var(--brand)}
   .nav-item[aria-pressed="true"] .n{color:var(--brand-ink); opacity:.75}
   .nav-item.lvl2{font-size:13px; font-weight:500; color:var(--ink-2)}
+  .nav-grp{display:flex; align-items:center; gap:2px}
+  .nav-grp .nav-item{flex:1; min-width:0}
+  .nav-caret{
+    flex:none; border:none; background:transparent; cursor:pointer; color:var(--muted);
+    padding:7px; border-radius:6px; display:grid; place-items:center; line-height:0;
+  }
+  .nav-caret:hover{background:var(--surface-2); color:var(--ink)}
+  .nav-caret svg{transition:transform .15s ease}
+  .nav-caret[aria-expanded="false"] svg{transform:rotate(-90deg)}
   .nav-sub{display:grid; gap:1px; margin:1px 0 8px}
   .nav-leaf{
     display:block; width:100%; text-align:left; border:none; background:transparent; cursor:pointer;
@@ -178,12 +187,14 @@
     .nav-sub{display:none}
     .nav-sec{margin-bottom:10px}
     .nav-sec .nav-row{display:flex; gap:6px; overflow-x:auto; padding-bottom:4px; scrollbar-width:thin}
+    .nav-sec .nav-row .nav-grp{flex:0 0 auto}
     .nav-sec .nav-row .nav-item{
       width:auto; flex:0 0 auto; white-space:nowrap;
       border-radius:999px; border:1px solid var(--line); border-left-width:1px;
       padding:6px 12px; font-size:13px;
     }
     .nav-sec .nav-row .nav-item .n{margin-left:4px}
+    .nav-sec .nav-row .nav-caret{display:none}
   }
 
   /* ---------- Thẻ hệ thống ---------- */
@@ -431,7 +442,8 @@
     saving: false,
     editSystem: null,
     editGroup: null,
-    editAccount: null
+    editAccount: null,
+    navOpen: {}
   };
 
   /* ---------------- tiện ích ---------------- */
@@ -646,10 +658,16 @@
       var items = state.data.systems.filter(function(s){ return s.group === g.id; });
       if(!items.length && !state.admin) return;
       var on = state.groups.indexOf(g.id) !== -1;
-      html += '<button class="nav-item" data-group="'+esc(g.id)+'" aria-pressed="'+on+'">'
-        + '<span class="dot t-'+g.tone+'" style="background:currentColor;opacity:.8"></span>'
-        + esc(g.name) + '<span class="n">'+items.length+'</span></button>';
-      html += '<div class="nav-sub">' + items.map(function(s){
+      var open = state.navOpen.hasOwnProperty(g.id) ? state.navOpen[g.id] : on;
+      html += '<div class="nav-grp">'
+        + '<button class="nav-item" data-group="'+esc(g.id)+'" aria-pressed="'+on+'">'
+        +   '<span class="dot t-'+g.tone+'" style="background:currentColor;opacity:.8"></span>'
+        +   esc(g.name) + '<span class="n">'+items.length+'</span></button>'
+        + '<button class="nav-caret" data-navtoggle="'+esc(g.id)+'" aria-expanded="'+open+'" aria-label="'+(open ? "Thu gọn " : "Mở rộng ")+esc(g.name)+'">'
+        +   '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>'
+        + '</button>'
+        + '</div>';
+      html += '<div class="nav-sub"'+(open ? "" : " hidden")+'>' + items.map(function(s){
         return '<button class="nav-leaf'+(on?" is-on":"")+'" data-jump="'+esc(s.id)+'">'+esc(s.name)+'</button>';
       }).join("") + '</div>';
     });
@@ -1003,10 +1021,18 @@
   /* ---------------- sự kiện chung ---------------- */
   document.addEventListener("click", function(e){
     if(!e.target.closest) return;
-    var t = e.target.closest("[data-all],[data-group],[data-acct],[data-jump],[data-pin],[data-detail],[data-close],[data-edit],[data-del],[data-gedit],[data-gdel],[data-aedit],[data-adel]");
+    var t = e.target.closest("[data-all],[data-group],[data-acct],[data-jump],[data-navtoggle],[data-pin],[data-detail],[data-close],[data-edit],[data-del],[data-gedit],[data-gdel],[data-aedit],[data-adel]");
     if(!t) return;
 
     if(t.hasAttribute("data-close")){ closeOverlay(); return; }
+
+    if(t.hasAttribute("data-navtoggle")){
+      var ngid = t.getAttribute("data-navtoggle");
+      var curOpen = state.navOpen.hasOwnProperty(ngid) ? state.navOpen[ngid] : (state.groups.indexOf(ngid) !== -1);
+      state.navOpen[ngid] = !curOpen;
+      renderNav();
+      return;
+    }
 
     if(t.hasAttribute("data-all")){
       state.groups = []; state.accounts = []; state.query = ""; $("q").value = "";
