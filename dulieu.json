@@ -1,0 +1,182 @@
+{
+  "groups": [
+    {
+      "id": "quanly",
+      "name": "Quản lý – Báo cáo",
+      "tone": "teal"
+    },
+    {
+      "id": "daylop",
+      "name": "Dạy học – Lớp học",
+      "tone": "blue"
+    },
+    {
+      "id": "thidua",
+      "name": "Thi đua – Hội thi",
+      "tone": "amber"
+    },
+    {
+      "id": "boiduong",
+      "name": "Bồi dưỡng – Tập huấn",
+      "tone": "violet"
+    }
+  ],
+  "accts": [
+    {
+      "id": "sso",
+      "label": "Tài khoản CSDL ngành (SSO)",
+      "tone": "teal",
+      "hint": "Tên đăng nhập là số CCCD của thầy cô, mật khẩu do Nhà trường cấp. Mọi trang có đăng nhập SSO đều dùng chung tài khoản này."
+    },
+    {
+      "id": "sdt",
+      "label": "Số điện thoại",
+      "tone": "blue",
+      "hint": "Tên đăng nhập là số điện thoại của thầy cô, mật khẩu dùng chung với tài khoản CSDL ngành."
+    },
+    {
+      "id": "email",
+      "label": "Email đã phân quyền",
+      "tone": "violet",
+      "hint": "Đăng nhập bằng địa chỉ email đã được Nhà trường phân quyền cho hệ thống này."
+    },
+    {
+      "id": "rieng",
+      "label": "Tài khoản riêng",
+      "tone": "slate",
+      "hint": "Tài khoản do Nhà trường cấp riêng cho hệ thống này, không dùng chung với CSDL ngành."
+    }
+  ],
+  "systems": [
+    {
+      "id": "csdlnganh",
+      "name": "Cơ sở dữ liệu Ngành",
+      "url": "https://truong.hcm.edu.vn",
+      "group": "quanly",
+      "acct": "sso",
+      "desc": "Hệ thống gốc của Sở GD&ĐT TP.HCM — cập nhật hồ sơ, số liệu nhà trường.",
+      "user": "Số CCCD của thầy cô",
+      "issuer": "Sở GD&ĐT TP.HCM, mật khẩu do Nhà trường cấp",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Đây là tài khoản gốc. Tất cả các trang trong nhóm đăng nhập SSO đều dùng chung tài khoản này — đăng nhập một lần rồi chuyển sang trang khác thường không phải nhập lại."
+    },
+    {
+      "id": "kehoachgd",
+      "name": "Quản lý trường học – Kế hoạch GD",
+      "url": "https://nhapdiem.truonghocviet.vn",
+      "group": "quanly",
+      "acct": "sso",
+      "desc": "Nhập điểm và đưa kế hoạch giáo dục của tổ chuyên môn.",
+      "user": "Số CCCD của thầy cô",
+      "issuer": "Đăng nhập SSO qua CSDL ngành",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Dùng chung tài khoản với Cơ sở dữ liệu Ngành."
+    },
+    {
+      "id": "quanlycm",
+      "name": "Quản lý Chuyên môn",
+      "url": "https://quanly.hcm.edu.vn/",
+      "group": "quanly",
+      "acct": "sso",
+      "desc": "Quản lý công tác chuyên môn của nhà trường.",
+      "user": "Tài khoản quản trị của trường hoặc tài khoản CSDL ngành",
+      "issuer": "Sở GD&ĐT TP.HCM",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Một số chức năng chỉ mở với tài khoản quản trị của trường, không mở với tài khoản giáo viên."
+    },
+    {
+      "id": "sodaubai",
+      "name": "Sổ đầu bài số",
+      "url": "https://sodaubai.hcm.edu.vn",
+      "group": "daylop",
+      "acct": "sso",
+      "desc": "Ghi sổ đầu bài điện tử sau mỗi tiết dạy.",
+      "user": "Số CCCD của thầy cô",
+      "issuer": "Đăng nhập SSO qua CSDL ngành",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Dùng chung tài khoản với Cơ sở dữ liệu Ngành. Nên ghi ngay sau tiết dạy để không bị dồn."
+    },
+    {
+      "id": "lms",
+      "name": "LMS Học và thi trực tuyến",
+      "url": "https://thcsthptnguyenkhuyen.lms.vnedu.vn",
+      "group": "daylop",
+      "acct": "rieng",
+      "desc": "Giao bài, tổ chức học và kiểm tra trực tuyến cho học sinh.",
+      "user": "nk… + số điện thoại của thầy cô",
+      "issuer": "Nhà trường cấp",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Tài khoản riêng của LMS, không phải tài khoản CSDL ngành."
+    },
+    {
+      "id": "thidua",
+      "name": "Thi đua khen thưởng",
+      "url": "https://thiduakhenthuong.hcm.edu.vn/login",
+      "group": "thidua",
+      "acct": "sso",
+      "desc": "Đăng ký và theo dõi công tác thi đua, khen thưởng.",
+      "user": "Số CCCD của thầy cô",
+      "issuer": "Đăng nhập SSO qua CSDL ngành",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Dùng chung tài khoản với Cơ sở dữ liệu Ngành."
+    },
+    {
+      "id": "hoithi",
+      "name": "Hội thi",
+      "url": "https://truonghoithi.hcm.edu.vn/dang-nhap",
+      "group": "thidua",
+      "acct": "sdt",
+      "desc": "Đăng ký và dự các hội thi do Sở, Phòng tổ chức.",
+      "user": "Số điện thoại của thầy cô",
+      "issuer": "Sở GD&ĐT TP.HCM",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Tên đăng nhập là số điện thoại, nhưng mật khẩu dùng chung với tài khoản CSDL ngành."
+    },
+    {
+      "id": "thiduagv",
+      "name": "Thi đua Giáo viên (nội bộ)",
+      "url": "https://script.google.com/macros/s/AKfycbyDgYi3DdY1uBLy3_iWTDKWokyPFatuacPF3MivIypzMY9yPvsBxD-UapwVsUSp1ydqWA/exec",
+      "group": "thidua",
+      "acct": "email",
+      "desc": "Biểu mẫu chấm và tổng hợp thi đua giáo viên của nhà trường.",
+      "user": "Email của thầy cô đã được phân quyền",
+      "issuer": "Nhà trường phân quyền",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Báo Văn phòng để cấp lại quyền truy cập cho email của thầy cô",
+      "notes": "Nếu báo lỗi không có quyền, hãy kiểm tra trình duyệt đang đăng nhập đúng email đã đăng ký hay chưa."
+    },
+    {
+      "id": "taphuan",
+      "name": "Bồi dưỡng thường xuyên",
+      "url": "https://taphuan.csdl.edu.vn",
+      "group": "boiduong",
+      "acct": "email",
+      "desc": "Học và hoàn thành các mô-đun bồi dưỡng thường xuyên.",
+      "user": "Email của thầy cô",
+      "issuer": "Mật khẩu do Nhà trường cấp",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Hoàn thành đúng hạn để được ghi nhận kết quả bồi dưỡng trong năm học."
+    },
+    {
+      "id": "chuyendoiso",
+      "name": "Chuyển đổi số ngành GD",
+      "url": "https://chuyendoiso.hcm.edu.vn/",
+      "group": "boiduong",
+      "acct": "email",
+      "desc": "Tập huấn và các nội dung chuyển đổi số của Sở GD&ĐT.",
+      "user": "Email của thầy cô",
+      "issuer": "Mật khẩu do Nhà trường cấp",
+      "owner": "Văn phòng nhà trường",
+      "reset": "Liên hệ Văn phòng nhà trường để được cấp lại",
+      "notes": "Cùng loại tài khoản với trang Bồi dưỡng thường xuyên."
+    }
+  ]
+}
