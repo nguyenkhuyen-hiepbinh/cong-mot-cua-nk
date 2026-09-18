@@ -148,7 +148,7 @@
       "name": "LMS Học và thi trực tuyến",
       "url": "https://thcsthptnguyenkhuyen.lms.vnedu.vn",
       "group": "daylop",
-      "accountType": "rieng",
+      "accountType": "sdt",
       "status": "active",
       "description": "Giao bài, tổ chức học và kiểm tra trực tuyến cho học sinh.",
       "login": {
@@ -157,7 +157,7 @@
         "reset": "Liên hệ Văn phòng nhà trường để được cấp lại"
       },
       "contact": {
-        "owner": "Văn phòng nhà trường"
+        "owner": "Thầy Trường - Vi tính"
       },
       "notes": "Tài khoản riêng của LMS, không phải tài khoản CSDL ngành."
     },
