@@ -91,7 +91,7 @@
     },
     {
       "id": "kehoachgd",
-      "name": "Quản lý trường học – Kế hoạch GD",
+      "name": "Kế hoạch GD nộp Sổ đầu bài",
       "url": "https://nhapdiem.truonghocviet.vn",
       "group": "quanly",
       "accountType": "sso",
@@ -103,7 +103,7 @@
         "reset": "Liên hệ Văn phòng nhà trường để được cấp lại"
       },
       "contact": {
-        "owner": "Văn phòng nhà trường"
+        "owner": "Văn thư"
       },
       "notes": "Dùng chung tài khoản với Cơ sở dữ liệu Ngành."
     },
