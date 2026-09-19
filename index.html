@@ -135,7 +135,7 @@
   }
 
   /* ---------- Bố cục ---------- */
-  .layout{display:grid; grid-template-columns:224px minmax(0,1fr); gap:18px; align-items:start; padding-block:14px 0}
+  .layout{display:grid; grid-template-columns:252px minmax(0,1fr); gap:18px; align-items:start; padding-block:14px 0}
   .layout > footer{grid-column:1/-1}
 
   .sidebar{position:sticky; top:calc(env(safe-area-inset-top,0px) + 74px); max-height:calc(100vh - 100px); overflow-y:auto; overscroll-behavior:contain; padding-right:4px}
@@ -152,6 +152,7 @@
     border-left:3px solid transparent;
   }
   .nav-item .n{margin-left:auto; font-size:11px; color:var(--muted); font-weight:500; font-variant-numeric:tabular-nums}
+  .nav-item .lbl{flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
   .nav-item:hover{background:var(--surface-2)}
   .nav-item[aria-pressed="true"]{background:var(--brand-soft); color:var(--brand-ink); border-left-color:var(--brand)}
   .nav-item[aria-pressed="true"] .n{color:var(--brand-ink); opacity:.75}
@@ -655,7 +656,7 @@
     var none = !state.groups.length && !state.accounts.length && !state.query;
 
     html += '<div class="nav-sec"><div class="nav-row">'
-      + '<button class="nav-item" data-all="1" aria-pressed="'+none+'">Tất cả<span class="n">'+state.data.systems.length+'</span></button>'
+      + '<button class="nav-item" data-all="1" aria-pressed="'+none+'"><span class="lbl">Tất cả</span><span class="n">'+state.data.systems.length+'</span></button>'
       + '</div></div>';
 
     html += '<div class="nav-sec"><div class="nav-label">Nhóm công việc</div><div class="nav-row">';
@@ -665,9 +666,9 @@
       var on = state.groups.indexOf(g.id) !== -1;
       var open = state.navOpen.hasOwnProperty(g.id) ? state.navOpen[g.id] : on;
       html += '<div class="nav-grp">'
-        + '<button class="nav-item" data-group="'+esc(g.id)+'" aria-pressed="'+on+'">'
+        + '<button class="nav-item" data-group="'+esc(g.id)+'" aria-pressed="'+on+'" title="'+esc(g.name)+'">'
         +   '<span class="dot t-'+g.tone+'" style="background:currentColor;opacity:.8"></span>'
-        +   esc(g.name) + '<span class="n">'+items.length+'</span></button>'
+        +   '<span class="lbl">'+esc(g.name)+'</span><span class="n">'+items.length+'</span></button>'
         + '<button class="nav-caret" data-navtoggle="'+esc(g.id)+'" aria-expanded="'+open+'" aria-label="'+(open ? "Thu gọn " : "Mở rộng ")+esc(g.name)+'">'
         +   '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>'
         + '</button>'
@@ -684,7 +685,7 @@
       if(!n && !state.admin) return;
       html += '<button class="nav-item lvl2" data-acct="'+esc(a.id)+'" aria-pressed="'
         + (state.accounts.indexOf(a.id) !== -1) + '" title="'+esc(a.hint)+'">'
-        + esc(a.label) + '<span class="n">'+n+'</span></button>';
+        + '<span class="lbl">'+esc(a.label)+'</span><span class="n">'+n+'</span></button>';
     });
     html += '</div></div>';
 
