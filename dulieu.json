@@ -184,7 +184,7 @@
       "name": "Hội thi",
       "url": "https://truonghoithi.hcm.edu.vn/dang-nhap",
       "group": "thidua",
-      "accountType": "sdt",
+      "accountType": "sso",
       "status": "active",
       "description": "Đăng ký và dự các hội thi do Sở, Phòng tổ chức.",
       "login": {
