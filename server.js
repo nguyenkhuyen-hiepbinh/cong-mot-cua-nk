@@ -76,7 +76,7 @@ function pickStatus(value) {
 function slugId(name, taken) {
   const base = str(name, 60)
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/đ/g, 'd').replace(/Đ/g, 'D')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '')
@@ -244,7 +244,7 @@ async function writeStore(data) {
     method: 'PUT',
     headers: { ...ghHeaders(), 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      message: 'Cập nhật danh mục hệ thống từ Cổng Một Cửa [skip render]',
+      message: 'Cập nhật danh mục hệ thống từ Cổng Một Cửa',
       content: Buffer.from(text, 'utf8').toString('base64'),
       sha: current.sha,
       branch: GITHUB_BRANCH
