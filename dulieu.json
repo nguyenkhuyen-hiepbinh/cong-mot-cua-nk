@@ -54,6 +54,24 @@
   ],
   "systems": [
     {
+      "id": "congthongtindi",
+      "name": "Cống thông tin điện tử nhà trường",
+      "url": "https://thcs-thptnguyenkhuyen.hcm.edu.vn/",
+      "group": "quanly",
+      "accountType": "rieng",
+      "status": "active",
+      "description": "Xem thông tin hoạt động - TKB giáo viên",
+      "login": {
+        "username": "",
+        "issuer": "",
+        "reset": ""
+      },
+      "contact": {
+        "owner": "Thầy Tiên"
+      },
+      "notes": ""
+    },
+    {
       "id": "quanlytruongho",
       "name": "Quản lý trường học - Học bạ số",
       "url": "https://vnedu.vn/",
